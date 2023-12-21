@@ -22,4 +22,4 @@ def detail_view(request, poll_id):
         poll.save()
 
     context = {'poll': poll}
-    return render(request, 'detail.html', context)
+    return render(request, 'polls/detail.html', context)
