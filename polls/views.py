@@ -5,7 +5,7 @@ from polls.models import Poll
 
 def list_view(request):
     context = {'polls': Poll.objects.all()}
-    return render(request, 'list.html', context)
+    return render(request, 'polls/list.html', context)
 
 
 def detail_view(request, poll_id):
