@@ -7,7 +7,7 @@ from blogs.models import Post
 
 
 class PostTestCase(TestCase):
-    fixtures = ['blogs_fixtures.json', ]
+    fixtures = ['blogs_test_fixture.json', ]
 
     def setUp(self):
         self.user = User.objects.get(pk=1)
