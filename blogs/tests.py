@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
 
-from blogs.models import Post
+from blogs.models import Post, Category
 
 
 class PostTestCase(TestCase):
@@ -14,4 +14,17 @@ class PostTestCase(TestCase):
         expected = 'This is a title'
         p1 = Post(title = expected)
         actual = str(p1)
+        self.assertEqual(expected, actual)
+
+
+class CategoryTestCase(TestCase):
+    fixtures = ['blogs_test_fixture.json', ]
+
+    def setUp(self):
+        self.user = User.objects.get(pk=1)
+
+    def test_string_representation(self):
+        expected = 'A Category'
+        c1 = Category(name = expected)
+        actual = str(c1)
         self.assertEqual(expected, actual)
