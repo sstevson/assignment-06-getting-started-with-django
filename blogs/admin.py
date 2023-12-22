@@ -3,12 +3,14 @@ from django.contrib import admin
 from blogs.models import Post, Category
 
 
-class PostInline(admin.TabularInline):
+class PostInline(admin.StackedInline):
     model = Post
+    foreign_key = 'category'
 
 
 class CategoryInline(admin.TabularInline):
     model = Category
+    foreign_key = 'post'
 
 
 @admin.register(Post)
